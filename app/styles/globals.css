@@ -1,16 +1,232 @@
-html,
-body {
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  font-family: system-ui, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+.text-base{
+  color: #c14500;
+}
+.bg-base{
+  background-color: #cf441d;
+}
+.bg-base-hover{
+  background-color: #f58848;
+}
+.bg-base-gradient {
+  background: linear-gradient(360deg, #f58848 0%, #cf441d 100%);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+#theReact {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: fixed;
+  bottom: 65px;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
-* {
-  box-sizing: border-box;
+@media screen and (max-width: 600px) {
+  #theReact {
+    width: 95%;
+  }
+}
+
+.round-button {
+  position: absolute;
+  bottom: -30px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  background: linear-gradient(360deg, rgb(245 136 72 / 80%) 0%, rgb(207 68 29 / 95%) 100%);
+  border-radius: 100%;
+  border: none;
+}
+
+svg text {
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.back-button {
+  background-color: rgba(255, 255, 255, 0.40);
+  color: #FFFFFF;
+  border-radius: 100%;
+  border: none;
+  padding: 4px;
+}
+
+.loader {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.loader::after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+  border-radius: 50%;
+  animation: loader 1.2s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.guest-layout-wrapper .waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.guest-layout-wrapper .content {
+  position: relative;
+  height: 15vh;
+  text-align: center;
+  background-color: white;
+}
+
+.guest-layout-wrapper.header {
+  position: relative;
+  text-align: center;
+  /* background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%); */
+  background: linear-gradient(60deg, #ff904f 0%, #c14500 100%);
+  color: white;
+}
+
+/* Animation */
+.guest-layout-wrapper .parallax>use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.guest-layout-wrapper .parallax>use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.guest-layout-wrapper .parallax>use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.guest-layout-wrapper .parallax>use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.guest-layout-wrapper .parallax>use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+.profile-header {
+  position: relative;
+  text-align: center;
+  min-height: 200px;
+  background: linear-gradient(360deg, #f58848 0%, #cf441d 100%);
+  color: white;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.search-modal-header h3 {
+  width: 100%;
+}
+
+& .slick-list {
+  margin: 0 -5px !important;
+
+  & .slick-slide>div {
+    padding: 0 5px;
+  }
 }
