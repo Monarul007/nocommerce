@@ -230,3 +230,13 @@ svg text {
     padding: 0 5px;
   }
 }
+
+.validator-text {
+  color: #bf1650;
+  font-size: small;
+}
+
+.validator-text::before {
+  display: inline;
+  content: "⚠ ";
+}

@@ -5,6 +5,7 @@ import { Providers } from "@/lib/providers";
 import "@/app/styles/globals.css"
 import { Nunito as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/toaster";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout(props: React.PropsWithChildren) {
           fontSans.variable
         )}>
           <main>{props.children}</main>
+          <Toaster />
         </body>
       </html>
     </Providers>

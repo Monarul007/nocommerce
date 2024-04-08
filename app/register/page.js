@@ -7,3 +7,8 @@ export default function RegisterPage(){
         </GuestLayout>
     )
 }
+
+export const metadata = {
+    title: "Register",
+    description: "Register Page"
+}
